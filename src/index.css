@@ -1,0 +1,154 @@
+:root {
+  /* Base Colors - Slate Scale (Refined) */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Primary Colors - Indigo Scale */
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+
+  /* Semantic Variables - Refined Light Mode */
+  --bg-app: #f1f5f9; /* Slate-100: Clearly distinct from white boards */
+  --bg-surface: #ffffff;
+  --text-primary: #1e293b; /* Slate-800: Sharp text */
+  --text-secondary: #64748b;
+
+  --border-subtle: #e2e8f0; /* Slate-200 */
+  --border-bold: #334155; /* Slate-700: Strong grid lines */
+  --border-focus: var(--indigo-500);
+
+  --primary: var(--indigo-600);
+  --primary-hover: var(--indigo-500);
+  --on-primary: #ffffff;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Fonts */
+  --font-sans:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.dark {
+  /* Semantic Variables - Dark Mode */
+  --bg-app: var(--slate-900);
+  --bg-surface: var(--slate-800);
+  --text-primary: var(--slate-100);
+  --text-secondary: var(--slate-400);
+
+  --border-subtle: var(--slate-700);
+  --border-bold: var(--slate-100);
+
+  --primary: var(--indigo-500);
+  --primary-hover: var(--indigo-600);
+
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Button Reset & Base Styles */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--slate-50);
+  border-color: var(--slate-300);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dark button {
+  background-color: var(--slate-800);
+  border-color: var(--slate-700);
+}
+
+.dark button:hover:not(:disabled) {
+  background-color: var(--slate-750);
+  border-color: var(--slate-600);
+}
+
+/* Primary Button Variant */
+button.primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: 1px solid transparent;
+}
+
+button.primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
